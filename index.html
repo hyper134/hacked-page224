@@ -8,6 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body, html {
+            animation: backgroundAnimation 2s linear infinite;
+            background-color: #ffcc00;
+            background-image: repeating-linear-gradient(45deg, #ff0000 0%, #ff0000 10%, #ffcc00 10%, #ffcc00 20%);
+            background-size: 40px 40px;
+
             margin: 0;
             padding: 0;
             height: 100%;
@@ -56,7 +61,11 @@
             75% { transform: translateX(-5px); }
             100% { transform: translateX(0); }
         }
-    </style>
+    @keyframes backgroundAnimation {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+</style>
 </head>
 <body>
     <div class="container">
@@ -89,6 +98,15 @@
             }, 1000);
         }
     </script>
-<div style='color: #ff5555; font-size: 1.5rem; margin-top: 2rem; text-align: center;'>FUCK SHIMUL</div>
+<div style='color: #ff5555; font-size: 1.5rem; margin-top: 2rem; text-align: center; overflow: hidden; white-space: nowrap;'>
+    <div style='display: inline-block; animation: scrollText 10s linear infinite;'>FUCK SHIMUL</div>
+</div>
+
+<style>
+    @keyframes scrollText {
+        from { transform: translateX(100%); }
+        to { transform: translateX(-100%); }
+    }
+</style>
 </body>
 </html>
