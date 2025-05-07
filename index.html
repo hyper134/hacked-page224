@@ -104,22 +104,30 @@
         </div>
     </div>
 
+    <audio id="warningSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+
     <script>
+        function playSound() {
+            const warningSound = document.getElementById('warningSound');
+            warningSound.play();
+        }
+
         function showAlert() {
             const alertBox = document.getElementById('alertBox');
             const countdownElement = document.getElementById('countdown');
             let timeLeft = 10;
             alertBox.style.display = 'block';
-            new Audio('https://www.youtube.com/embed/rUkzZTGE6jI?autoplay=1').play();
+            playSound();
 
             const countdownInterval = setInterval(() => {
                 timeLeft--;
                 countdownElement.textContent = `System Lockdown in ${timeLeft} seconds...`;
+                playSound();
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
                     countdownElement.textContent = "System Locked. Your data is now inaccessible.";
-                    new Audio('https://www.youtube.com/embed/rUkzZTGE6jI?autoplay=1').play();
+                    playSound();
                 }
             }, 1000);
         }
