@@ -8,20 +8,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body, html {
-            animation: backgroundAnimation 2s linear infinite;
             background-color: #ffcc00;
-            background-image: repeating-linear-gradient(45deg, #ff0000 0%, #ff0000 10%, #ffcc00 10%, #ffcc00 20%);
-            background-size: 40px 40px;
-
+            background-image: repeating-linear-gradient(45deg, #ff0000 0%, #ff0000 5%, #ffcc00 5%, #ffcc00 10%);
+            background-size: 30px 30px;
+            animation: backgroundFlash 2s infinite;
             margin: 0;
             padding: 0;
             height: 100%;
             font-family: 'Roboto', sans-serif;
-            background-color: #0d1117;
             color: #f0f6fc;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+        }
+        @keyframes backgroundFlash {
+            0% { background-color: #ffcc00; }
+            50% { background-color: #ff4444; }
+            100% { background-color: #ffcc00; }
+        }
+        .scroll-text {
+            color: #ff5555;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .scroll-text div {
+            display: inline-block;
+            animation: scrollText 10s linear infinite;
+        }
+        @keyframes scrollText {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
         }
         .container {
             text-align: center;
@@ -61,13 +81,13 @@
             75% { transform: translateX(-5px); }
             100% { transform: translateX(0); }
         }
-    @keyframes backgroundAnimation {
-            0% { background-position: 0 0; }
-            100% { background-position: 100px 100px; }
-        }
-</style>
+    </style>
 </head>
 <body>
+    <div class="scroll-text">
+        <div>FUCK SHIMUL</div>
+    </div>
+
     <div class="container">
         <button class="button" onclick="showAlert()">Click to Verify</button>
         <div class="alert" id="alertBox">
@@ -98,15 +118,6 @@
             }, 1000);
         }
     </script>
-<div style='color: #ff5555; font-size: 1.5rem; margin-top: 2rem; text-align: center; overflow: hidden; white-space: nowrap;'>
-    <div style='display: inline-block; animation: scrollText 10s linear infinite;'>FUCK SHIMUL</div>
-</div>
-
-<style>
-    @keyframes scrollText {
-        from { transform: translateX(100%); }
-        to { transform: translateX(-100%); }
-    }
-</style>
 </body>
 </html>
+
